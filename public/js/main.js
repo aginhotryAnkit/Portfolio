@@ -113,4 +113,45 @@ document.querySelectorAll('.fade-up, .timeline-item, .project-card, .skill-chips
 const scrollTopBtn = document.getElementById('scrollTop');
 scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
+// ── RESUME MODAL
+const resumeModal = document.getElementById('resumeModal');
+const viewResumeBtn = document.getElementById('viewResumeBtn');
+const closeResumeBtn = document.getElementById('closeResumeBtn');
+const resumeOverlay = document.getElementById('resumeOverlay');
+const resumeIframe = document.querySelector('.resume-iframe');
+
+function openResumeModal() {
+  resumeModal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeResumeModal() {
+  resumeModal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+if (viewResumeBtn) viewResumeBtn.addEventListener('click', openResumeModal);
+if (closeResumeBtn) closeResumeBtn.addEventListener('click', closeResumeModal);
+if (resumeOverlay) resumeOverlay.addEventListener('click', closeResumeModal);
+
+// Close modal on ESC key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && resumeModal.classList.contains('active')) {
+    closeResumeModal();
+  }
+});
+
+// Hide loader when iframe loads
+if (resumeIframe) {
+  resumeIframe.addEventListener('load', () => {
+    const loader = document.querySelector('.resume-loader');
+    if (loader) {
+      setTimeout(() => {
+        loader.style.opacity = '0';
+        loader.style.pointerEvents = 'none';
+      }, 300);
+    }
+  });
+}
+
 

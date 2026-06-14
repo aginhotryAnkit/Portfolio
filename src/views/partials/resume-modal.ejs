@@ -1,0 +1,37 @@
+<!-- Resume Modal -->
+<div class="resume-modal" id="resumeModal">
+  <div class="resume-modal-overlay" id="resumeOverlay"></div>
+  <div class="resume-modal-content">
+    <div class="resume-modal-header">
+      <h3 class="resume-modal-title">
+        <i class="fas fa-file-alt"></i>
+        My Resume
+      </h3>
+      <div class="resume-modal-actions">
+        <a href="https://drive.google.com/uc?export=download&id=1hXWjmkgnjJTfw-JFua7L7DOV6vetfiOT" 
+           class="resume-btn-download" 
+           download
+           target="_blank"
+           rel="noopener noreferrer">
+          <i class="fas fa-download"></i>
+          Download
+        </a>
+        <button class="resume-btn-close" id="closeResumeBtn" aria-label="Close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+    <div class="resume-modal-body">
+      <div class="resume-loader">
+        <i class="fas fa-spinner fa-spin"></i>
+        <p>Loading resume...</p>
+      </div>
+      <iframe 
+        src="https://drive.google.com/file/d/1hXWjmkgnjJTfw-JFua7L7DOV6vetfiOT/preview" 
+        class="resume-iframe"
+        allow="autoplay"
+        loading="lazy">
+      </iframe>
+    </div>
+  </div>
+</div>
