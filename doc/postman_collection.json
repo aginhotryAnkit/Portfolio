@@ -1,0 +1,34 @@
+{
+  "info": { "name": "Portfolio API", "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json" },
+  "item": [
+    {
+      "name": "Profile",
+      "item": [
+        { "name": "GET Profile", "request": { "method": "GET", "url": "http://localhost:3000/api/profile" } },
+        { "name": "PUT Personal", "request": { "method": "PUT", "url": "http://localhost:3000/api/profile/personal", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\"name\":\"Ankit Agnihotry\",\"phone\":\"+91 9670014450\",\"email\":\"akaginhotry9651@gmail.com\",\"linkedin\":\"https://linkedin.com/in/ankit-aginhotry-b3a2551b4\",\"github\":\"https://github.com/aginhotryAnkit\"}" } } },
+        { "name": "PUT Summary", "request": { "method": "PUT", "url": "http://localhost:3000/api/profile/summary", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\"content\":\"Your profile summary here\"}" } } },
+        { "name": "POST Education", "request": { "method": "POST", "url": "http://localhost:3000/api/profile/education", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\"degree\":\"BCA\",\"institution\":\"BBD University\",\"year\":\"2022\",\"percentage\":\"79.6%\"}" } } },
+        { "name": "POST Skill", "request": { "method": "POST", "url": "http://localhost:3000/api/profile/skills", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\"name\":\"Docker\",\"category\":\"tool\"}" } } },
+        { "name": "POST Hobby", "request": { "method": "POST", "url": "http://localhost:3000/api/profile/hobbies", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\"name\":\"Music\",\"emoji\":\"🎵\"}" } } }
+      ]
+    },
+    {
+      "name": "Experience",
+      "item": [
+        { "name": "GET All", "request": { "method": "GET", "url": "http://localhost:3000/api/experience" } },
+        { "name": "POST Experience", "request": { "method": "POST", "url": "http://localhost:3000/api/experience", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\"company\":\"New Company\",\"role\":\"Senior Developer\",\"start_date\":\"Jan 2025\",\"is_current\":true,\"points\":[\"Built APIs\",\"Led team\"]}" } } },
+        { "name": "PUT Experience", "request": { "method": "PUT", "url": "http://localhost:3000/api/experience/1", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\"company\":\"Updated Company\",\"role\":\"Lead Dev\",\"start_date\":\"Jan 2025\",\"is_current\":true,\"points\":[]}" } } },
+        { "name": "DELETE Experience", "request": { "method": "DELETE", "url": "http://localhost:3000/api/experience/1" } }
+      ]
+    },
+    {
+      "name": "Projects",
+      "item": [
+        { "name": "GET All Projects", "request": { "method": "GET", "url": "http://localhost:3000/api/projects" } },
+        { "name": "POST Project", "request": { "method": "POST", "url": "http://localhost:3000/api/projects", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\"title\":\"New Project\",\"description\":\"What it does\",\"tech_stack\":[\"Node.js\",\"PostgreSQL\"],\"github_url\":\"\",\"live_url\":\"\",\"is_featured\":true}" } } },
+        { "name": "GET Achievements", "request": { "method": "GET", "url": "http://localhost:3000/api/projects/achievements" } },
+        { "name": "POST Achievement", "request": { "method": "POST", "url": "http://localhost:3000/api/projects/achievements", "header": [{ "key": "Content-Type", "value": "application/json" }], "body": { "mode": "raw", "raw": "{\"title\":\"Best Developer Award\",\"description\":\"Won for outstanding performance\"}" } } }
+      ]
+    }
+  ]
+}

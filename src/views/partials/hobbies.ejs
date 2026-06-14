@@ -1,0 +1,17 @@
+<section id="hobbies">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-tag">Beyond Work</div>
+      <h2 class="section-title">Hobbies & Interests</h2>
+      <p class="section-subtitle">What I enjoy outside of coding</p>
+    </div>
+    <div class="hobbies-wrap fade-up">
+      <% profile.hobbies.forEach(h => { %>
+        <div class="hobby-pill">
+          <span class="emoji"><%= h.emoji || '🎯' %></span>
+          <span><%= h.name %></span>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,30 @@
+<nav class="navbar" id="navbar">
+  <div class="navbar-inner">
+    <a href="#hero" class="nav-logo">
+      <img src="/images/website-logo.svg" alt="Logo" class="nav-logo-img" />
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about" class="nav-link"><span class="nav-link-dot"></span>About</a></li>
+      <li><a href="#skills" class="nav-link"><span class="nav-link-dot"></span>Skills</a></li>
+      <li><a href="#experience" class="nav-link"><span class="nav-link-dot"></span>Experience</a></li>
+      <li><a href="#projects" class="nav-link"><span class="nav-link-dot"></span>Projects</a></li>
+      <li><a href="#certifications" class="nav-link"><span class="nav-link-dot"></span>Certifications</a></li>
+      <li><a href="#education" class="nav-link"><span class="nav-link-dot"></span>Education</a></li>
+      <li><a href="#hobbies" class="nav-link"><span class="nav-link-dot"></span>Hobbies</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <a href="mailto:<%= profile.personal ? profile.personal.email : '' %>" class="nav-cta">
+        <i class="fas fa-paper-plane"></i>
+        <span>Hire Me</span>
+      </a>
+      <div class="nav-hamburger" id="hamburger" role="button" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile progress bar -->
+  <div class="nav-progress" id="navProgress"></div>
+</nav>

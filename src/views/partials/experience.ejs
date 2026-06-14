@@ -1,0 +1,86 @@
+<section id="experience">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-tag">Career</div>
+      <h2 class="section-title">Work Experience</h2>
+      <p class="section-subtitle">My professional journey and key contributions</p>
+    </div>
+
+    <div class="timeline">
+      <% experience.forEach((exp, i) => { %>
+        <div class="timeline-item fade-up" style="transition-delay:<%= i * 0.15 %>s">
+
+          <!-- Timeline node -->
+          <div class="timeline-node <%= exp.is_current ? 'current' : '' %>">
+            <div class="timeline-node-inner"></div>
+          </div>
+
+          <div class="experience-card <%= exp.is_current ? 'current-card' : '' %>">
+
+            <!-- Top accent bar for current -->
+            <% if (exp.is_current) { %>
+              <div class="exp-accent-bar"></div>
+            <% } %>
+
+            <div class="exp-header">
+              <!-- Logo + Company -->
+              <div class="exp-company-wrap">
+                <div class="exp-logo-wrap">
+                  <% if (exp.company_logo) { %>
+                    <img src="<%= exp.company_logo %>" alt="<%= exp.company %>" class="exp-logo"
+                      onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                  <% } %>
+                  <div class="exp-logo-placeholder" style="<%= exp.company_logo ? 'display:none' : '' %>">
+                    <%= exp.company.charAt(0) %>
+                  </div>
+                </div>
+                <div class="exp-company-info">
+                  <div class="exp-company"><%= exp.company %></div>
+                  <div class="exp-role">
+                    <i class="fas fa-briefcase"></i>
+                    <%= exp.role %>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Date + Badge -->
+              <div class="exp-meta">
+                <% if (exp.is_current) { %>
+                  <span class="exp-date-current">
+                    <span class="exp-date-text">
+                      <i class="fas fa-calendar-alt"></i>
+                      <%= exp.start_date %> — Present
+                    </span>
+                    <span class="exp-live-dot"></span>
+                  </span>
+                  <span class="badge-current">● Current</span>
+                <% } else { %>
+                  <span class="exp-date">
+                    <i class="fas fa-calendar-alt"></i>
+                    <%= exp.start_date %> — <%= exp.end_date || 'Present' %>
+                  </span>
+                <% } %>
+              </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="exp-divider"></div>
+
+            <!-- Points -->
+            <% if (exp.points && exp.points.length > 0) { %>
+              <ul class="exp-points">
+                <% exp.points.forEach(pt => { %>
+                  <li>
+                    <span class="exp-point-icon"><i class="fas fa-chevron-right"></i></span>
+                    <%= pt %>
+                  </li>
+                <% }) %>
+              </ul>
+            <% } %>
+
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</section>

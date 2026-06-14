@@ -1,0 +1,100 @@
+<%
+const categoryMeta = {
+  language:     { icon: '💻', label: 'Languages',       color: '#4338CA' },
+  framework:    { icon: '⚙️',  label: 'Frameworks',      color: '#166534' },
+  database:     { icon: '🗄️', label: 'Databases',        color: '#C2410C' },
+  cloud:        { icon: '☁️', label: 'Cloud & DevOps',   color: '#0C4A6E' },
+  tool:         { icon: '🔧', label: 'Tools & APIs',     color: '#7E22CE' },
+  security:     { icon: '🔒', label: 'Security & Auth',  color: '#9F1239' },
+  architecture: { icon: '🏗️', label: 'Architecture',     color: '#92400E' },
+};
+
+const skillLogos = {
+  'JavaScript':               'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
+  'TypeScript':               'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
+  'PHP':                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg',
+  'Java':                     'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg',
+  'Node.js':                  'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
+  'Express.js':               'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg',
+  'React':                    'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+  'Next.js':                  'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg',
+  'Laravel':                  'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg',
+  'PostgreSQL':               'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg',
+  'MongoDB':                  'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg',
+  'Redis':                    'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg',
+  'SQL':                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
+  'AWS EC2':                  'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg',
+  'AWS Lambda':               'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg',
+  'Amazon S3':                'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg',
+  'AWS Secrets Manager':      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg',
+  'Amazon API Gateway':       'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg',
+  'Elastic Load Balancing':   'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg',
+  'Amazon CloudWatch':        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg',
+  'AWS IAM':                  'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg',
+  'AWS SQS':                  'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg',
+  'GraphQL':                  'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg',
+  'Git':                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg',
+  'GitHub':                   'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg',
+  'GitLab':                   'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/gitlab/gitlab-original.svg',
+  'Docker':                   'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg',
+  'Nginx':                    'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg',
+  'Postman':                  'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg',
+  'REST API':                 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg',
+  'Swagger/OpenAPI':          'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swagger/swagger-original.svg',
+  'JWT':                      'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
+  'OAuth':                    'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg',
+};
+
+const grouped = {};
+profile.skills.forEach(s => {
+  if (!grouped[s.category]) grouped[s.category] = [];
+  grouped[s.category].push(s);
+});
+%>
+<section id="skills" class="section-alt">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-tag">Expertise</div>
+      <h2 class="section-title">Technical Skills</h2>
+      <p class="section-subtitle">Technologies and tools I work with daily</p>
+    </div>
+    <div class="skills-categories">
+      <% Object.keys(grouped).forEach(cat => { %>
+        <div class="skill-category-block fade-up">
+          <div class="skill-category-header">
+            <div class="skill-category-icon">
+              <%= categoryMeta[cat] ? categoryMeta[cat].icon : '🔹' %>
+            </div>
+            <span class="skill-category-name"><%= categoryMeta[cat] ? categoryMeta[cat].label : cat %></span>
+          </div>
+          <div class="skill-chips">
+            <% grouped[cat].forEach(skill => { %>
+              <span class="skill-chip <%= cat %>">
+                <% if (skillLogos[skill.name]) { %>
+                  <img src="<%= skillLogos[skill.name] %>" alt="<%= skill.name %>" class="skill-logo" />
+                <% } %>
+                <%= skill.name %>
+              </span>
+            <% }) %>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+
+    <% if (profile.competencies && profile.competencies.length > 0) { %>
+      <div class="section-header fade-up" style="margin-top:4rem;margin-bottom:1.5rem">
+        <div class="section-tag">Core Strengths</div>
+        <h2 class="section-title">Core Competencies</h2>
+      </div>
+      <div class="competencies-grid">
+        <% const compIcons = ['🚀','🗄️','🔒','☁️','💳','🔗','🤝','🏗️','⚡','🔄']; %>
+        <% profile.competencies.forEach((c, i) => { %>
+          <div class="competency-card fade-up" style="transition-delay:<%= i * 0.1 %>s">
+            <span class="icon"><%= compIcons[i % compIcons.length] %></span>
+            <span><%= c.title %></span>
+          </div>
+        <% }) %>
+      </div>
+    <% } %>
+  </div>
+</section>

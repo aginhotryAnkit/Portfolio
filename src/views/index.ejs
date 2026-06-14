@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="<%= profile.personal ? profile.personal.name : 'Portfolio' %> — Backend Developer Portfolio" />
+  <title><%= title %></title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <!-- Global ambient glow layer -->
+  <div class="ambient-glow">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <%- include('../views/partials/navbar') %>
+
+  <%- include('../views/partials/hero') %>
+
+  <%- include('../views/partials/about') %>
+
+  <%- include('../views/partials/skills') %>
+
+  <%- include('../views/partials/experience') %>
+
+  <%- include('../views/partials/projects') %>
+
+  <%- include('../views/partials/certifications') %>
+
+  <%- include('../views/partials/education') %>
+
+  <%- include('../views/partials/hobbies') %>
+
+  <%- include('../views/partials/footer') %>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

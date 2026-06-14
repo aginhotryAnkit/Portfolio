@@ -1,0 +1,40 @@
+<section id="certifications">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-tag">Credentials</div>
+      <h2 class="section-title">Certifications & Achievements</h2>
+    </div>
+    <div class="ca-grid">
+      <div class="fade-up">
+        <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:1.25rem;color:var(--text-primary)">
+          <i class="fas fa-certificate" style="color:var(--primary);margin-right:0.5rem"></i>Certifications
+        </h3>
+        <div class="cert-list">
+          <% profile.certifications.forEach(cert => { %>
+            <div class="cert-card">
+              <div class="cert-icon">🏅</div>
+              <div class="cert-info">
+                <div class="cert-title"><%= cert.title %></div>
+                <% if (cert.issuer) { %><div class="cert-issuer"><%= cert.issuer %></div><% } %>
+              </div>
+            </div>
+          <% }) %>
+        </div>
+      </div>
+      <div class="fade-up" style="transition-delay:0.2s">
+        <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:1.25rem;color:var(--text-primary)">
+          <i class="fas fa-trophy" style="color:var(--warning);margin-right:0.5rem"></i>Achievements
+        </h3>
+        <div class="achievement-list">
+          <% achievements.forEach(ach => { %>
+            <div class="achievement-card">
+              <div class="ach-icon">🏆</div>
+              <div class="ach-title"><%= ach.title %></div>
+              <% if (ach.description) { %><div class="ach-desc"><%= ach.description %></div><% } %>
+            </div>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

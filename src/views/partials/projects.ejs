@@ -1,0 +1,51 @@
+<section id="projects" class="section-alt">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-tag">Portfolio</div>
+      <h2 class="section-title">Projects</h2>
+      <p class="section-subtitle">Things I've built and shipped</p>
+    </div>
+    <div class="projects-grid">
+      <% projects.forEach((proj, i) => { %>
+        <div class="project-card" style="transition-delay:<%= i * 0.1 %>s">
+          <div class="project-image">
+            <% if (proj.image && proj.image !== '/images/projects/placeholder.png') { %>
+              <img src="<%= proj.image %>" alt="<%= proj.title %>" />
+            <% } else { %>
+              <div class="project-image-placeholder">🚀</div>
+            <% } %>
+            <% if (proj.is_featured) { %>
+              <span class="featured-badge">⭐ Featured</span>
+            <% } %>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title"><%= proj.title %></h3>
+            <p class="project-desc"><%= proj.description %></p>
+            <% if (proj.tech_stack && proj.tech_stack.length > 0) { %>
+              <div class="tech-tags">
+                <% proj.tech_stack.forEach(tech => { %>
+                  <span class="tech-tag"><%= tech %></span>
+                <% }) %>
+              </div>
+            <% } %>
+            <div class="project-links">
+              <% if (proj.github_url) { %>
+                <a href="<%= proj.github_url %>" target="_blank" class="project-link github">
+                  <i class="fab fa-github"></i> Code
+                </a>
+              <% } %>
+              <% if (proj.live_url) { %>
+                <a href="<%= proj.live_url %>" target="_blank" class="project-link live">
+                  <i class="fas fa-external-link-alt"></i> Live
+                </a>
+              <% } %>
+              <% if (!proj.github_url && !proj.live_url) { %>
+                <span style="font-size:0.8rem;color:var(--text-muted);padding:0.5rem 0">🔒 Private Project</span>
+              <% } %>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</section>

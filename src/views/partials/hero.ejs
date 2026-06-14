@@ -1,0 +1,48 @@
+<% const p = profile.personal; %>
+<section class="hero" id="hero">
+  <div class="hero-bg-blob"></div>
+  <div class="hero-bg-blob"></div>
+  <div class="hero-container">
+    <div class="hero-content">
+      <div class="hero-badge"><span>👋</span> Welcome to my portfolio</div>
+      <h1 class="hero-name">
+        Hi, I'm <span class="highlight"><%= p ? p.name : 'Ankit Agnihotry' %></span>
+      </h1>
+      <p class="hero-title">
+        <span id="typed-text"></span><span class="typed-cursor"></span>
+      </p>
+      <p class="hero-desc">
+        A results-driven Software Developer with 4+ years of experience building scalable backend systems, REST APIs, and cloud-native applications.
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn-primary"><i class="fas fa-rocket"></i> View My Work</a>
+        <a href="#about" class="btn-outline"><i class="fas fa-user"></i> About Me</a>
+      </div>
+      <div class="hero-socials">
+        <% if (p && p.github) { %>
+          <a href="<%= p.github %>" target="_blank" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
+        <% } %>
+        <% if (p && p.linkedin) { %>
+          <a href="<%= p.linkedin %>" target="_blank" class="social-link" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <% } %>
+        <% if (p && p.email) { %>
+          <a href="mailto:<%= p.email %>" class="social-link" title="Email"><i class="fas fa-envelope"></i></a>
+        <% } %>
+        <% if (p && p.phone) { %>
+          <a href="tel:<%= p.phone %>" class="social-link" title="Phone"><i class="fas fa-phone"></i></a>
+        <% } %>
+      </div>
+      <div class="hero-tags">
+        <span class="hero-tag"><i class="fas fa-briefcase"></i> Backend Developer</span>
+        <span class="hero-tag"><i class="fas fa-cloud"></i> Cloud & AWS</span>
+        <span class="hero-tag"><i class="fas fa-shield-alt"></i> API Architect</span>
+        <span class="hero-tag"><i class="fas fa-database"></i> PostgreSQL & MongoDB</span>
+      </div>
+    </div>
+    <div class="hero-image-wrap">
+      <div class="hero-image-ring">
+        <img src="<%= p && p.profile_photo && p.profile_photo.trim() !== '' ? p.profile_photo : '/images/profile-placeholder.svg' %>" alt="<%= p ? p.name : 'Profile' %>" />
+      </div>
+    </div>
+  </div>
+</section>

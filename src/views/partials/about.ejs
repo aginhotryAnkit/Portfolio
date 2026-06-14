@@ -1,0 +1,47 @@
+<% const p = profile.personal; const s = profile.summary; %>
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text fade-up">
+        <div class="section-tag">About Me</div>
+        <h2 class="section-title">Passionate about building things that scale</h2>
+        <% if (s) { %>
+          <% s.content.split('. ').reduce((acc, _, i, arr) => { if (i % 3 === 0) acc.push(arr.slice(i, i+3).join('. ')); return acc; }, []).forEach(para => { %>
+            <p><%= para %>.</p>
+          <% }) %>
+        <% } %>
+      </div>
+      <div class="fade-up" style="transition-delay:0.2s">
+        <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:1rem;color:var(--text-primary)">Personal Details</h3>
+        <div class="about-info-grid">
+          <% if (p) { %>
+            <div class="info-item">
+              <div class="info-label">Name</div>
+              <div class="info-value"><%= p.name %></div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">Email</div>
+              <div class="info-value"><a href="mailto:<%= p.email %>"><%= p.email %></a></div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">Phone</div>
+              <div class="info-value"><a href="tel:<%= p.phone %>"><%= p.phone %></a></div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">Languages</div>
+              <div class="info-value"><%= p.languages %></div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">GitHub</div>
+              <div class="info-value"><a href="<%= p.github %>" target="_blank">View Profile</a></div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">LinkedIn</div>
+              <div class="info-value"><a href="<%= p.linkedin %>" target="_blank">View Profile</a></div>
+            </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

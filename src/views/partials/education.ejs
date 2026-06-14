@@ -1,0 +1,20 @@
+<section id="education" class="section-alt">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-tag">Background</div>
+      <h2 class="section-title">Education</h2>
+    </div>
+    <div class="edu-grid">
+      <% profile.education.forEach((edu, i) => { %>
+        <div class="edu-card fade-up" style="transition-delay:<%= i * 0.15 %>s">
+          <div class="edu-degree"><%= edu.degree %></div>
+          <div class="edu-institution"><%= edu.institution %></div>
+          <div class="edu-meta">
+            <span class="edu-year"><%= edu.year %></span>
+            <% if (edu.percentage) { %><span class="edu-percent"><%= edu.percentage %></span><% } %>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</section>
