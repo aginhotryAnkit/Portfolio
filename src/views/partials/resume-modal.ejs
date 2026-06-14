@@ -1,3 +1,16 @@
+<%
+  // Extract file ID from stored URL or use it directly
+  const resumeRaw = profile.personal && profile.personal.resume_url
+    ? profile.personal.resume_url
+    : 'https://drive.google.com/file/d/15ti6U5qD73MyDZtWhaRRK4HKMo0ipnbW';
+
+  // Support both full URL and bare file ID
+  const resumeIdMatch = resumeRaw.match(/\/d\/([a-zA-Z0-9_-]+)/);
+  const resumeFileId = resumeIdMatch ? resumeIdMatch[1] : resumeRaw;
+
+  const resumePreviewUrl  = `https://drive.google.com/file/d/${resumeFileId}/preview`;
+  const resumeDownloadUrl = `https://drive.google.com/uc?export=download&id=${resumeFileId}`;
+%>
 <!-- Resume Modal -->
 <div class="resume-modal" id="resumeModal">
   <div class="resume-modal-overlay" id="resumeOverlay"></div>
@@ -8,7 +21,7 @@
         My Resume
       </h3>
       <div class="resume-modal-actions">
-        <a href="https://drive.google.com/uc?export=download&id=1hXWjmkgnjJTfw-JFua7L7DOV6vetfiOT" 
+        <a href="<%= resumeDownloadUrl %>" 
            class="resume-btn-download" 
            download
            target="_blank"
@@ -27,7 +40,7 @@
         <p>Loading resume...</p>
       </div>
       <iframe 
-        src="https://drive.google.com/file/d/1hXWjmkgnjJTfw-JFua7L7DOV6vetfiOT/preview" 
+        src="<%= resumePreviewUrl %>" 
         class="resume-iframe"
         allow="autoplay"
         loading="lazy">
@@ -35,3 +48,4 @@
     </div>
   </div>
 </div>
+

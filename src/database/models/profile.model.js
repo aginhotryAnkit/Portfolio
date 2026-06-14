@@ -10,6 +10,7 @@ const PersonalDetail = sequelize.define('PersonalDetail', {
   github: { type: DataTypes.STRING },
   languages: { type: DataTypes.STRING },
   profile_photo: { type: DataTypes.STRING, defaultValue: null },
+  resume_url: { type: DataTypes.STRING, defaultValue: null },
 }, { tableName: 'personal_details', timestamps: true });
 
 const ProfileSummary = sequelize.define('ProfileSummary', {

@@ -21,6 +21,7 @@ async function seed() {
       github: 'https://github.com/aginhotryAnkit',
       languages: 'English & Hindi',
       profile_photo: 'https://plain-apac-prod-public.komododecks.com/202606/13/PHmlqnEmTsNRZrXo7SsE/image.png',
+      resume_url: 'https://drive.google.com/file/d/15ti6U5qD73MyDZtWhaRRK4HKMo0ipnbW',
     });
 
     // ── PROFILE SUMMARY
